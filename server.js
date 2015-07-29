@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;        // set our port
 var ip = process.env.IP || '127.0.0.1';       // set the ip as well
-var mongoUrl = process.env.MONGO_URL || 'mongodb://192.168.59.103:27017/buzzed'
+var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://192.168.59.103:27017/buzzed'
 
 mongoose.connect(mongoUrl); // connect to our database
 
