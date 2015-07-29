@@ -5,6 +5,8 @@ var Schema       = mongoose.Schema;
 
 var WordSchema   = new Schema({
     name: String
+    partOfSpeech: String
+    
 });
 
 module.exports = mongoose.model('Word', WordSchema);
