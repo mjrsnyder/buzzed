@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;        // set our port
 var ip = process.env.IP || '0.0.0.0';       // set the ip as well
-var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://192.168.59.103:27017/buzzed'
+var mongoUrl = process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://192.168.59.103:27017/buzzed'
 
 mongoose.connect(mongoUrl); // connect to our database
 
@@ -36,7 +36,7 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
-    res.json({ message: 'prepare to be buzzed!' });   
+    res.json({ message: 'prepare to be buzzed!' });
 });
 
 // more routes for our API will happen here
@@ -118,6 +118,7 @@ router.route('/words/:word_id')
             res.json({ message: 'Successfully deleted' });
         });
     });
+
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);

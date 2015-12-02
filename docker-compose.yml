@@ -1,0 +1,13 @@
+buzzed:
+  build: .
+  ports:
+    - "80:8080"
+  links:
+    - mongo
+  environment:
+    MONGO_URI: mongodb://mongo:27017/buzzed
+
+mongo:
+  image: mongo:latest
+  ports:
+    - "27017:27017"
